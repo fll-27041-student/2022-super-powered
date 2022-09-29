@@ -91,25 +91,25 @@ class BaseBits:
             wait(2000)
             sys.exit()
 
-        try: 
-            self.left_color_sensor = ColorSensor(Port.S1)
-        except:
-            self.ev3.light.on(Color.RED)
-            self.ev3.screen.draw_text(0,40,"PORT 1 SENSOR")
-            print("PORT 1 SENSOR ERROR")
-            self.ev3.speaker.beep(frequency=2000, duration=2000)
-            wait(2000)
-            sys.exit()
+        # try: 
+        #     self.left_color_sensor = ColorSensor(Port.S1)
+        # except:
+        #     self.ev3.light.on(Color.RED)
+        #     self.ev3.screen.draw_text(0,40,"PORT 1 SENSOR")
+        #     print("PORT 1 SENSOR ERROR")
+        #     self.ev3.speaker.beep(frequency=2000, duration=2000)
+        #     wait(2000)
+        #     sys.exit()
 
-        try:
-            self.right_color_sensor = ColorSensor(Port.S4)
-        except:
-            self.ev3.light.on(Color.RED)
-            self.ev3.screen.draw_text(0,40,"PORT 4 SENSOR")
-            print("PORT 4 SENSOR ERROR")
-            self.ev3.speaker.beep(frequency=2000, duration=2000)
-            wait(2000)
-            sys.exit()
+        # try:
+        #     self.right_color_sensor = ColorSensor(Port.S4)
+        # except:
+        #     self.ev3.light.on(Color.RED)
+        #     self.ev3.screen.draw_text(0,40,"PORT 4 SENSOR")
+        #     print("PORT 4 SENSOR ERROR")
+        #     self.ev3.speaker.beep(frequency=2000, duration=2000)
+        #     wait(2000)
+        #     sys.exit()
 
         self.ev3.screen.clear()
         self.ev3.light.off()
@@ -169,6 +169,20 @@ class BaseBits:
         self.ev3.screen.draw_text(142, 100, str(self.page + 1) + "/" +
                                   str(math.ceil(len(self.passes) / 5)))
 
+    def open_bay_doors(self):
+        self.ev3.speaker.beep(400)
+        self.right_attachment_motor.run_time(-100, 2300)
+        self.ev3.speaker.beep(600)
+
+    def close_bay_doors(self):
+        self.ev3.speaker.beep(400)
+        self.right_attachment_motor.run_time(100, 2300)
+        self.ev3.speaker.beep(600)
+
+    def lift_arm(self):
+        self.ev3.speaker.beep(4000)
+
+    #bb.robot.straight(-400)
     def main_menu_loop(self):
         """Main loop for the program.
 
