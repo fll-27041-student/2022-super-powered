@@ -51,7 +51,7 @@ class BaseBits:
             sys.exit()
     
         try:
-            self.left_drive_motor = Motor(Port.B,positive_direction=Direction.COUNTERCLOCKWISE)
+            self.left_drive_motor = Motor(Port.B,positive_direction=Direction.CLOCKWISE)
         except:
             self.ev3.light.on(Color.RED)
             self.ev3.screen.draw_text(0,40,"PORT B MOTOR")
@@ -61,7 +61,7 @@ class BaseBits:
             sys.exit()
 
         try:
-            self.right_drive_motor = Motor(Port.C,positive_direction=Direction.COUNTERCLOCKWISE)
+            self.right_drive_motor = Motor(Port.C,positive_direction=Direction.CLOCKWISE)
         except:
             self.ev3.light.on(Color.RED)
             self.ev3.screen.draw_text(0,40,"PORT C MOTOR")
@@ -126,12 +126,12 @@ class BaseBits:
         # greater than and less-than characters to advance / go back to different
         # pages of the menu, in case the number of items exceeds the buttons.
         self.passes = [
-            ("1-Pump", mission1.run),
-            ("2-Agua", mission2.run),
-            ("3-Dyno", mission3.run),
-            ("4-Push", mission4.run),
+            ("1-Hand", mission1.run),
+            ("2-Load", mission2.run),
+            ("3-Mode", mission3.run),
+            ("4-Wind", mission4.run),
             (">", self.next_page),
-            ("5-Wind", mission5.run),
+            ("5-Dyno", mission5.run),
             ("6-None", self.previous_page),
             ("7-None", self.previous_page),
             ("8-None", self.previous_page),
@@ -179,8 +179,13 @@ class BaseBits:
         self.right_attachment_motor.run_time(100, 2300)
         self.ev3.speaker.beep(600)
 
-    def lift_arm(self):
+    def lift_forklift(self):
         self.ev3.speaker.beep(4000)
+        self.left_attachment_motor.run_time(100, 2300)
+
+    def lower_forklift(self):
+        self.ev3.speaker.beep(4000)
+        self.left_attachment_motor.run_time(-100, 2300)   
 
     #bb.robot.straight(-400)
     def main_menu_loop(self):

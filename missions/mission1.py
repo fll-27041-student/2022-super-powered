@@ -1,7 +1,7 @@
 from pybricks.parameters import Port, Stop, Direction, Button, Color
 
 def run(bb: BaseBits):
-    print("Running mission 1")
+    print("Running Hand")
     # # bb.robot.straight(368)
     # bb.ev3.speaker.beep(200)
     # bb.left_attachment_motor.run_time(200, 2000)
