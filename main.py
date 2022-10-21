@@ -17,6 +17,7 @@ from missions import mission2
 from missions import mission3
 from missions import mission4
 from missions import mission5
+from missions import mission6
 
 
 class BaseBits:
@@ -51,7 +52,7 @@ class BaseBits:
             sys.exit()
     
         try:
-            self.left_drive_motor = Motor(Port.B,positive_direction=Direction.COUNTERCLOCKWISE)
+            self.left_drive_motor = Motor(Port.B,positive_direction=Direction.CLOCKWISE)
         except:
             self.ev3.light.on(Color.RED)
             self.ev3.screen.draw_text(0,40,"PORT B MOTOR")
@@ -61,7 +62,7 @@ class BaseBits:
             sys.exit()
 
         try:
-            self.right_drive_motor = Motor(Port.C,positive_direction=Direction.COUNTERCLOCKWISE)
+            self.right_drive_motor = Motor(Port.C,positive_direction=Direction.CLOCKWISE)
         except:
             self.ev3.light.on(Color.RED)
             self.ev3.screen.draw_text(0,40,"PORT C MOTOR")
@@ -126,13 +127,13 @@ class BaseBits:
         # greater than and less-than characters to advance / go back to different
         # pages of the menu, in case the number of items exceeds the buttons.
         self.passes = [
-            ("1-Pump", mission1.run),
-            ("2-Agua", mission2.run),
-            ("3-Dyno", mission3.run),
-            ("4-Push", mission4.run),
+            ("1-Hand", mission1.run),
+            ("2-Load", mission2.run),
+            ("3-Mode", mission3.run),
+            ("4-Dyno", mission4.run),
             (">", self.next_page),
             ("5-Wind", mission5.run),
-            ("6-None", self.previous_page),
+            ("6-energy",mission6.run ),
             ("7-None", self.previous_page),
             ("8-None", self.previous_page),
             ("<", self.previous_page)
