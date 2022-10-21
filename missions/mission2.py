@@ -1,2 +1,15 @@
-def run():
-    print("Running mission 2")
+def run(bb: BaseBits):
+    print("Running load (mission 2)")
+    bb.lift_forklift()
+    bb.robot.straight (22 * 25.4)
+    bb.robot.turn(45)
+    bb.robot.straight (14 * 25.4)
+    bb.robot.turn(-45)
+    bb.robot.straight (21 * 25.4)
+    bb.open_bay_doors()
+    bb.close_bay_doors()
+    bb.robot.straight (-7 * 25.4)
+    bb.lower_forklift()
+    bb.robot.straight (-22 * 25.4)
+    bb.robot.turn(45)
+    bb.robot.straight (-31 * 25.4)

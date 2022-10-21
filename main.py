@@ -180,8 +180,13 @@ class BaseBits:
         self.right_attachment_motor.run_time(100, 2300)
         self.ev3.speaker.beep(600)
 
-    def lift_arm(self):
+    def lift_forklift(self):
         self.ev3.speaker.beep(4000)
+        self.left_attachment_motor.run_time(150, 2400)
+
+    def lower_forklift(self):
+        self.ev3.speaker.beep(4000)
+        self.left_attachment_motor.run_time(-150, 2400)   
 
     #bb.robot.straight(-400)
     def main_menu_loop(self):
