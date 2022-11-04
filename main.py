@@ -134,7 +134,7 @@ class BaseBits:
             ("1-Hand", mission1.run),
             ("2-Load", mission2.run),
             ("3-Mode", mission3.run),
-            ("4-Wind", mission4.run),
+            ("4-Dyno", mission4.run),
             (">", self.next_page),
             ("5-Dyno", mission5.run),
             ("6-Push", mission6.run),
