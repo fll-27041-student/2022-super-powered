@@ -17,6 +17,8 @@ from missions import mission2
 from missions import mission3
 from missions import mission4
 from missions import mission5
+from missions import mission6
+from missions import mission7
 
 
 class BaseBits:
@@ -81,7 +83,10 @@ class BaseBits:
             sys.exit()
 
         try:
-            self.robot = DriveBase(self.left_drive_motor, self.right_drive_motor, wheel_diameter=88, axle_track=111)
+            # New 56 wheel, 86 axle
+            # self.robot = DriveBase(self.left_drive_motor, self.right_drive_motor, wheel_diameter=88, axle_track=111)
+            # Scale factor 0.636 for wheel, 77%
+            self.robot = DriveBase(self.left_drive_motor, self.right_drive_motor, wheel_diameter=56, axle_track=86)
             self.robot.settings(straight_speed=600, straight_acceleration=200, turn_rate=200, turn_acceleration=100)
         except:
             self.ev3.light.on(Color.RED)
@@ -114,7 +119,7 @@ class BaseBits:
         self.ev3.screen.clear()
         self.ev3.light.off()
         self.ev3.light.on(Color.GREEN)
-        self.ev3.screen.draw_text(10,40,"STARTUP GOOD!")
+        self.ev3.screen.draw_text(10,40,"We Got This:))))))")
         wait(1000)
         self.ev3.screen.clear()   
 
@@ -132,8 +137,8 @@ class BaseBits:
             ("4-Wind", mission4.run),
             (">", self.next_page),
             ("5-Dyno", mission5.run),
-            ("6-None", self.previous_page),
-            ("7-None", self.previous_page),
+            ("6-Push", mission6.run),
+            ("7-Dino2", mission7.run),
             ("8-None", self.previous_page),
             ("<", self.previous_page)
         ]
@@ -250,6 +255,6 @@ class BaseBits:
 
 
 if __name__ == '__main__':
-    print("Initializing base-bits!  Hello World!")
+    print("Initializing base-bits!  SLAY ;))))")
     base_bits = BaseBits()
     base_bits.main_menu_loop()
