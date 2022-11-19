@@ -22,14 +22,9 @@ def run(bb: BaseBits):
     bb.close_bay_doors()
 
     # return to home
-    bb.robot.straight (-3.8 * 25.4)
+    bb.robot.straight (-3.75 * 25.4)
     bb.lower_forklift()
     bb.robot.straight (-9 * 25.4)
- 
-    # for i in range(0, 5):
-    #     bb.robot.turn(3)
-    #     bb.robot.straight (-5 * 25.4)
-
 
     bb.robot.drive(-200, 25)
     wait(4000)

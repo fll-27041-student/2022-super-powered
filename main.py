@@ -19,7 +19,7 @@ from missions import mission4
 from missions import mission5
 from missions import mission6
 from missions import mission7
-
+from missions import mission8
 
 class BaseBits:
     """Encapsulates base code for First Lego League projects.  
@@ -87,7 +87,9 @@ class BaseBits:
             # self.robot = DriveBase(self.left_drive_motor, self.right_drive_motor, wheel_diameter=88, axle_track=111)
             # Scale factor 0.636 for wheel, 77%
             self.robot = DriveBase(self.left_drive_motor, self.right_drive_motor, wheel_diameter=56, axle_track=86)
-            self.robot.settings(straight_speed=600, straight_acceleration=200, turn_rate=200, turn_acceleration=100)
+            # self.robot.settings(straight_speed=600, straight_acceleration=200, turn_rate=200, turn_acceleration=100)
+
+            self.robot.settings(straight_speed=750, straight_acceleration=400, turn_rate=200, turn_acceleration=100)
         except:
             self.ev3.light.on(Color.RED)
             self.ev3.screen.draw_text(0,40,"DRIVEBASE ERROR")
@@ -119,7 +121,7 @@ class BaseBits:
         self.ev3.screen.clear()
         self.ev3.light.off()
         self.ev3.light.on(Color.GREEN)
-        self.ev3.screen.draw_text(10,40,"We Got This:))))))")
+        self.ev3.screen.draw_text(10,40,"210 Points right here")
         wait(1000)
         self.ev3.screen.clear()   
 
@@ -134,12 +136,12 @@ class BaseBits:
             ("1-Hand", mission1.run),
             ("2-Load", mission2.run),
             ("3-Mode", mission3.run),
-            ("4-Dyno", mission4.run),
+            ("4-Wind", mission4.run),
             (">", self.next_page),
-            ("5-Dyno", mission5.run),
+            ("5-NOPE", mission5.run),
             ("6-Push", mission6.run),
-            ("7-Dino2", mission7.run),
-            ("8-None", self.previous_page),
+            ("7-Dino", mission7.run),
+            ("8-Kobe", mission8.run),
             ("<", self.previous_page)
         ]
 
@@ -185,12 +187,14 @@ class BaseBits:
         self.ev3.speaker.beep(600)
 
     def lift_forklift(self):
-        self.ev3.speaker.beep(4000)
-        self.left_attachment_motor.run_time(150, 2400)
+        self.ev3.speaker.beep(1500)
+        self.left_attachment_motor.run_time(300, 1500)
+        #self.left_attachment_motor.run_time(150, 2400)
 
     def lower_forklift(self):
-        self.ev3.speaker.beep(4000)
-        self.left_attachment_motor.run_time(-150, 2400)   
+        self.ev3.speaker.beep(1500)
+        self.left_attachment_motor.run_time(-300, 1500)
+        #self.left_attachment_motor.run_time(-150, 2400)   
 
     #bb.robot.straight(-400)
     def main_menu_loop(self):
@@ -246,6 +250,9 @@ class BaseBits:
                 # the () and passing the BaseBits object in so that function can use it.
                 function = self.passes[self.page * 5 + button_index][1]
                 function(self)
+                self.left_attachment_motor.stop()
+                self.right_attachment_motor.stop()
+                self.robot.stop()
             except Exception as e:
                 print(str(e))
                 # Play a very disappointed noise
@@ -255,6 +262,6 @@ class BaseBits:
 
 
 if __name__ == '__main__':
-    print("Initializing base-bits!  SLAY ;))))")
+    print("Initializing base-bits! TECHNO NEVER DIES   :) ")
     base_bits = BaseBits()
     base_bits.main_menu_loop()

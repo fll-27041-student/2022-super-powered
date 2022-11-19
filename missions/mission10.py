@@ -1,16 +1,26 @@
 from pybricks.parameters import Port, Stop, Direction, Button, Color
 
 def run(bb: BaseBits):
+    print("Running mission 10")
+from pybricks.parameters import Port, Stop, Direction, Button, Color
+
+def run(bb: BaseBits):
     print("Running mission 1")
 
     # bb.lift_forklift()
 
-    # Go straight to line up with the hand
-    bb.robot.straight(890)
-    # Turn the robot to fce the hand
-    bb.robot.turn(91)
-    # Go strait to arive at the hand
-    bb.robot.straight(493.5)
+    # # Go straight to line up with the hand
+    # bb.robot.straight(890)
+    # # Turn the robot to fce the hand
+    # bb.robot.turn(91)
+    # # Go strait to arive at the hand
+    # bb.robot.straight(493.5)
+
+    bb.robot.drive(200, 18)
+    wait(5000)
+    bb.robot.stop()
+
+
     # Lower the hook on the forklift down to catch on to the lever on the hand
     bb.lower_forklift()
     # Back up to pull the lever on the hand to lover the hand
@@ -37,7 +47,7 @@ def run(bb: BaseBits):
     bb.robot.turn(15)
     # finish off by going straight for a while to make sure that I make it all the way home so I am all the way off the board
     bb.robot.straight(700)
-    bb.left_attachment_motor.stop()
+
     # Coments tell what the the piece of code below it does
 
 

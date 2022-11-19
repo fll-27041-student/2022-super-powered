@@ -1,4 +1,6 @@
 from pybricks.parameters import Port, Stop, Direction, Button, Color
+from pybricks.tools import wait, StopWatch, DataLog
+
 
 def run(bb: BaseBits):
     print("Running mission 4")
@@ -12,11 +14,13 @@ def run(bb: BaseBits):
     bb.robot.straight(444.4)
     bb.robot.turn(87)
     #Setup for the windmill mission
-    bb.robot.straight(49)
+    bb.robot.straight(60)
     #Move into the windmill
     for i in range (0,3):
         bb.robot.straight(76)
+        wait(100)
         bb.robot.straight(-76)
     #Go back to HQ
-    bb.robot.turn(130.69)
+    bb.robot.turn(120.69)
     bb.robot.straight(507.68)
+    
