@@ -14,13 +14,13 @@ def run(bb: BaseBits):
     bb.robot.straight(444.4)
     bb.robot.turn(87)
     #Setup for the windmill mission
-    bb.robot.straight(60)
+    bb.robot.straight(62)
     #Move into the windmill
-    for i in range (0,3):
-        bb.robot.straight(76)
+    for i in range (0,4):
+        bb.robot.straight(70)
         wait(100)
-        bb.robot.straight(-76)
-    #Go back to HQ
+        bb.robot.straight(-70)
+    #Go back to HQ5
     bb.robot.turn(120.69)
     bb.robot.straight(507.68)
     
