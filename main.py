@@ -20,6 +20,7 @@ from missions import mission5
 from missions import mission6
 from missions import mission7
 from missions import mission8
+from missions import mission9
 
 class BaseBits:
     """Encapsulates base code for First Lego League projects.  
@@ -89,7 +90,7 @@ class BaseBits:
             self.robot = DriveBase(self.left_drive_motor, self.right_drive_motor, wheel_diameter=56, axle_track=86)
             # self.robot.settings(straight_speed=600, straight_acceleration=200, turn_rate=200, turn_acceleration=100)
 
-            self.robot.settings(straight_speed=750, straight_acceleration=400, turn_rate=200, turn_acceleration=100)
+            self.robot.settings(straight_speed=1000, straight_acceleration=300, turn_rate=200, turn_acceleration=100)
         except:
             self.ev3.light.on(Color.RED)
             self.ev3.screen.draw_text(0,40,"DRIVEBASE ERROR")
@@ -134,14 +135,15 @@ class BaseBits:
         # pages of the menu, in case the number of items exceeds the buttons.
         self.passes = [
             ("1-Hand", mission1.run),
-            ("2-Load", mission2.run),
-            ("3-Mode", mission3.run),
-            ("4-Wind", mission4.run),
+            ("2-Hydr", mission9.run),
+            ("3-Load", mission2.run),
+            ("4-Model", mission6.run),
             (">", self.next_page),
-            ("5-NOPE", mission5.run),
-            ("6-Push", mission6.run),
-            ("7-Dino", mission7.run),
-            ("8-Kobe", mission8.run),
+            ("5-SMS2", mission3.run),
+            ("6-Wind", mission4.run),
+            ("7-Power", mission5.run),
+            ("8-Dino", mission7.run),
+            #("8-Kobe", mission8.run),
             ("<", self.previous_page)
         ]
 
@@ -262,6 +264,6 @@ class BaseBits:
 
 
 if __name__ == '__main__':
-    print("Initializing base-bits! TECHNO NEVER DIES   :) ")
+    print(" Initializing base-bits! ")
     base_bits = BaseBits()
     base_bits.main_menu_loop()

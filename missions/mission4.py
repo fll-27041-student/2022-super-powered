@@ -5,7 +5,7 @@ from pybricks.tools import wait, StopWatch, DataLog
 def run(bb: BaseBits):
     print("Running mission 4")
     #Make sure the forklift is lowered
-    bb.lower_forklift()
+    #bb.lower_forklift()
     #Do the TV mission
     bb.robot.straight(377)
     bb.robot.straight(-115.5)
@@ -23,4 +23,4 @@ def run(bb: BaseBits):
     #Go back to HQ5
     bb.robot.turn(120.69)
     bb.robot.straight(507.68)
-    
+    bb.lift_forklift()    

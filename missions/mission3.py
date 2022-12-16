@@ -5,7 +5,7 @@ from pybricks.tools import wait, StopWatch, DataLog
 def run(bb: BaseBits):
     print("Running mission 3")
 
-    bb.lift_forklift()
+    #bb.lift_forklift()
     ##angle the robot to go to the battery
     bb.robot.straight(250)
     ##lineup to the battery

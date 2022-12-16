@@ -4,8 +4,6 @@ from pybricks.tools import wait, StopWatch, DataLog
 def run(bb: BaseBits):
     print("Running load (mission 2)")
 
-    bb.lift_forklift()
-
     # drive towards oil rid
     bb.robot.straight (18 * 25.4)
 
@@ -19,8 +17,7 @@ def run(bb: BaseBits):
 
     # Drop items in
     bb.open_bay_doors()
-    bb.close_bay_doors()
-
+    
     # return to home
     bb.robot.straight (-3.75 * 25.4)
     bb.lower_forklift()
@@ -31,3 +28,4 @@ def run(bb: BaseBits):
     bb.robot.stop()
     
     bb.lift_forklift()
+    bb.close_bay_doors()
